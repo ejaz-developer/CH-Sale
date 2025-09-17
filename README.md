@@ -105,36 +105,6 @@ npm run electron
 yarn electron
 ```
 
-## 📁 Project Structure
-
-```
-pos-master/
-├── public/
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Sidebar.jsx
-│   │   ├── Dashboard.jsx
-│   │   ├── Sales.jsx
-│   │   ├── Products.jsx
-│   │   ├── Inventory.jsx
-│   │   ├── Customers.jsx
-│   │   ├── Transactions.jsx
-│   │   ├── Reports.jsx
-│   │   └── Settings.jsx
-│   ├── styles/
-│   │   └── index.css
-│   ├── App.jsx
-│   └── main.jsx
-├── electron/
-│   └── main.js
-├── package.json
-├── tailwind.config.js
-├── vite.config.js
-└── README.md
-```
 
 ## ⚙️ Configuration
 
