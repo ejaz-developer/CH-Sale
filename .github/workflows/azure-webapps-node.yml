@@ -43,7 +43,7 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './backend/package-lock.json'
 
-    - name: npm install, build, and test
+    - name: npm install, build
       working-directory: ./backend
       run: |
         npm install
@@ -54,7 +54,9 @@ jobs:
       with:
         name: node-app
         path: ./backend
-
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      
   deploy:
     permissions:
       contents: none
