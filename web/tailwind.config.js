@@ -82,4 +82,15 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    'from-charcoal-darkest',
+    'via-charcoal-darker', 
+    'to-charcoal-dark',
+    'from-persian',
+    'to-saffron',
+    'from-sandy',
+    'to-burnt',
+    'bg-gradient-to-br',
+    'bg-gradient-to-r'
+  ]
 };

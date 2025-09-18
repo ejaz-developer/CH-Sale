@@ -43,7 +43,7 @@ function App() {
   return (
     <ClerkProvider publishableKey={clerkPubKey} appearance={clerkAppearance}>
       <Router>
-        <div className="min-h-screen bg-gradient-to-br from-charcoal-darkest via-charcoal-darker to-charcoal-dark text-slate-50">
+        <div className="dark-gradient-bg">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/sign-in" element={<SignInPage />} />

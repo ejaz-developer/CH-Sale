@@ -49,6 +49,39 @@
   box-shadow: 0 0 40px rgba(42, 157, 143, 0.8);
 }
 
+/* Dark gradient background fix */
+.dark-gradient-bg {
+  background: linear-gradient(135deg, #0f1c21 0%, #1a2f36 50%, #264653 100%);
+  min-height: 100vh;
+  color: #f8fafc;
+}
+
+/* Custom gradient utilities for specific colors */
+.from-charcoal-darkest {
+  --tw-gradient-from: #0f1c21;
+  --tw-gradient-to: rgba(15, 28, 33, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-charcoal-darker {
+  --tw-gradient-to: rgba(26, 47, 54, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #1a2f36, var(--tw-gradient-to);
+}
+
+.to-charcoal-dark {
+  --tw-gradient-to: #264653;
+}
+
+.from-persian {
+  --tw-gradient-from: #2a9d8f;
+  --tw-gradient-to: rgba(42, 157, 143, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-saffron {
+  --tw-gradient-to: #e9c46a;
+}
+
 /* Clerk component styling */
 .clerk-profile-container .cl-card {
   background: transparent !important;
