@@ -1,4 +1,4 @@
-# Pull Request - POS Master
+# Pull Request - CH POS
 
 ## 📝 Description
 <!-- Provide a clear and concise description of what this PR does -->
