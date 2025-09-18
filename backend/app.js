@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import authRoutes from './routes/auth.js';
+
 const app = express();
 
 // Middleware
@@ -15,12 +17,15 @@ app.use(
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('CH Sale POS Backend API');
 });
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
+
+// Authentication routes
+app.use('/api/auth', authRoutes);
 
 // 404 handler
 app.use((req, res) => {
