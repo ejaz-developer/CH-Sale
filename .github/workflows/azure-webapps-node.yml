@@ -54,8 +54,6 @@ jobs:
       with:
         name: node-app
         path: ./backend
-    - name: Azure Login
-      uses: Azure/login@v2.3.0
       
   deploy:
     permissions:
