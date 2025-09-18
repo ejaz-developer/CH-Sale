@@ -6,8 +6,6 @@
   "main": "public/electron.cjs",
   "homepage": "./",
   "dependencies": {
-    "@clerk/clerk-react": "^5.47.0",
-    "@clerk/themes": "^2.4.19",
     "electron-is-dev": "^3.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

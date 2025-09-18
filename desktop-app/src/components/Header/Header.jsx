@@ -1,5 +1,3 @@
-import React from 'react';
-import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import { FiMenu, FiBell, FiSettings, FiSearch, FiMoon, FiPlus } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
@@ -98,47 +96,7 @@ const Header = ({ toggleSidebar, isSidebarOpen, toggleSidebarCollapse, isSidebar
           </button>
 
           {/* Authentication Section */}
-          <div className="flex items-center space-x-3 pl-3 border-l border-white/20">
-            <SignedOut>
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={() => navigate('/sign-in')}
-                  className="bg-cyan-500/10 border border-cyan-400/30 text-cyan-400 px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:bg-cyan-500/20"
-                >
-                  <span className="text-sm">Sign In</span>
-                </button>
-                <button
-                  onClick={() => navigate('/sign-up')}
-                  className="bg-purple-500/10 border border-purple-400/30 text-purple-400 px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:bg-purple-500/20"
-                >
-                  <span className="text-sm">Sign Up</span>
-                </button>
-              </div>
-            </SignedOut>
-
-            <SignedIn>
-              <div className="flex items-center space-x-3">
-                <div className="hidden lg:block text-right">
-                  <p className="text-sm font-semibold text-white">Welcome!</p>
-                  <p className="text-xs text-cyan-300">Productive day</p>
-                </div>
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full blur opacity-75 animate-pulse"></div>
-                  <UserButton
-                    afterSignOutUrl="/"
-                    appearance={{
-                      elements: {
-                        avatarBox:
-                          'relative w-10 h-10 ring-2 ring-cyan-400 ring-offset-2 ring-offset-transparent',
-                        userButtonPopoverCard: 'glass-dark border border-white/20 text-white',
-                        userButtonPopoverActions: 'border-t border-white/20',
-                      },
-                    }}
-                  />
-                </div>
-              </div>
-            </SignedIn>
-          </div>
+         
         </div>
       </div>
     </header>
