@@ -1,238 +1,185 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 :root {
-    --charcoal: #264653ff;
-    --persian-green: #2a9d8fff;
-    --saffron: #e9c46aff;
-    --sandy-brown: #f4a261ff;
-    --burnt-sienna: #e76f51ff;
+  --charcoal: #264653ff;
+  --persian-green: #2a9d8fff;
+  --saffron: #e9c46aff;
+  --sandy-brown: #f4a261ff;
+  --burnt-sienna: #e76f51ff;
 
-    /* Darker variations for better Electron integration */
-    --charcoal-darker: #1a2f36;
-    --charcoal-darkest: #0f1c21;
-    --persian-green-dark: #1e6b5c;
-    --saffron-dark: #b8984a;
-    --sandy-brown-dark: #c7824b;
-    --burnt-sienna-dark: #b85a42;
+  /* Dark theme variations */
+  --charcoal-darker: #1a2f36;
+  --charcoal-darkest: #0f1c21;
+  --charcoal-light: #3a5f6b;
+  --persian-green-dark: #1e6b5c;
+  --persian-green-darker: #134f44;
+  --saffron-dark: #b8984a;
+  --sandy-brown-dark: #c7824b;
+  --burnt-sienna-dark: #b85a42;
 
-    /* Additional color variations for better gradients */
-    --charcoal-light: #3a5f6b;
-    --persian-green-light: #3db5a0;
-    --saffron-light: #edc878;
-    --sandy-brown-light: #f6b074;
-    --burnt-sienna-light: #ea8166;
+  /* Additional gradient colors */
+  --dark-slate: #1e293b;
+  --midnight-blue: #0f172a;
+  --steel-gray: #374151;
+  --emerald-dark: #065f46;
+  --amber-dark: #92400e;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Darker gradient background matching Electron window header */
-    background: linear-gradient(135deg,
-    var(--charcoal-darkest) 0%,
-    var(--charcoal-darker) 25%,
-    var(--charcoal) 50%,
-    var(--persian-green-dark) 80%,
-    var(--persian-green) 100%);
-
-    /* Alternative darker gradient with warmer tones */
-    /* background: linear-gradient(160deg,
-        #0f1419 0%,
-        #1a2f36 30%,
-        #264653 60%,
-        #1e6b5c 90%,
-        #2a9d8f 100%); */
-
-    /* Option 3: Even darker with subtle accent */
-    /* background: linear-gradient(140deg,
-        #0a0e12 0%,
-        #1a2f36 40%,
-        #264653 70%,
-        #1e6b5c 100%); */
-
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-    color: #e2e8f0; /* Light text by default for dark theme */
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Darker animated gradient overlay */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-            radial-gradient(circle at 15% 85%,
-            rgba(42, 157, 143, 0.05) 0%,
-            transparent 40%),
-            radial-gradient(circle at 85% 15%,
-            rgba(38, 70, 83, 0.08) 0%,
-            transparent 40%),
-            radial-gradient(circle at 50% 50%,
-            rgba(26, 47, 54, 0.03) 0%,
-            transparent 50%);
-    pointer-events: none;
-    z-index: -1;
+/* Custom scrollbar for dark theme */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Main app container styling */
-#root {
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--charcoal-darkest);
 }
 
-/* Dark glassmorphism effect for cards/containers */
-.glass-container {
-    background: rgba(15, 28, 33, 0.4);
-    backdrop-filter: blur(12px);
-    border-radius: 12px;
-    border: 1px solid rgba(42, 157, 143, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--persian-green-dark);
+  border-radius: 3px;
 }
 
-/* Alternative darker glass container */
-.glass-container-dark {
-    background: rgba(10, 14, 18, 0.6);
-    backdrop-filter: blur(15px);
-    border-radius: 12px;
-    border: 1px solid rgba(38, 70, 83, 0.3);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--persian-green);
 }
 
-/* Text color utilities - adjusted for dark theme */
-.text-charcoal { color: var(--charcoal-light); }
-.text-persian-green { color: var(--persian-green-light); }
-.text-saffron { color: var(--saffron); }
-.text-sandy-brown { color: var(--sandy-brown-light); }
-.text-burnt-sienna { color: var(--burnt-sienna-light); }
-.text-light { color: #e2e8f0; }
-.text-muted { color: #94a3b8; }
-
-/* Dark background color utilities */
-.bg-charcoal-dark { background-color: var(--charcoal-darker); }
-.bg-charcoal-darkest { background-color: var(--charcoal-darkest); }
-.bg-charcoal { background-color: var(--charcoal); }
-.bg-persian-green { background-color: var(--persian-green); }
-.bg-persian-green-dark { background-color: var(--persian-green-dark); }
-.bg-saffron { background-color: var(--saffron); }
-.bg-sandy-brown { background-color: var(--sandy-brown); }
-.bg-burnt-sienna { background-color: var(--burnt-sienna); }
-
-/* Updated button styles for dark theme */
-.btn-primary {
-    background: linear-gradient(45deg, var(--persian-green-dark), var(--persian-green));
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(42, 157, 143, 0.2);
+/* Glow effects */
+.glow-persian {
+  box-shadow: 0 0 20px rgba(42, 157, 143, 0.3);
 }
 
-.btn-primary:hover {
-    background: linear-gradient(45deg, var(--persian-green), var(--persian-green-light));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(42, 157, 143, 0.4);
+.glow-saffron {
+  box-shadow: 0 0 20px rgba(233, 196, 106, 0.3);
 }
 
-.btn-secondary {
-    background: linear-gradient(45deg, var(--charcoal), var(--charcoal-light));
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(38, 70, 83, 0.2);
+.glow-orange {
+  box-shadow: 0 0 20px rgba(244, 162, 97, 0.3);
 }
 
-.btn-secondary:hover {
-    background: linear-gradient(45deg, var(--charcoal-light), var(--persian-green-dark));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(38, 70, 83, 0.4);
+/* Animated gradient backgrounds */
+.gradient-animation {
+  background: linear-gradient(
+    -45deg,
+    var(--charcoal-darker),
+    var(--charcoal-darkest),
+    var(--persian-green-darker),
+    var(--charcoal)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
-.btn-accent {
-    background: linear-gradient(45deg, var(--saffron-dark), var(--saffron));
-    color: var(--charcoal-darkest);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(233, 196, 106, 0.2);
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.btn-accent:hover {
-    background: linear-gradient(45deg, var(--saffron), var(--saffron-light));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(233, 196, 106, 0.3);
+/* Hover animations */
+.hover-scale {
+  transition: transform 0.2s ease;
 }
 
-/* Dark scrollbar styling */
-::-webkit-scrollbar {
-    width: 8px;
+.hover-scale:hover {
+  transform: scale(1.05);
 }
 
-::-webkit-scrollbar-track {
-    background: var(--charcoal-darkest);
-    border-radius: 4px;
+.hover-glow:hover {
+  box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--persian-green-dark);
-    border-radius: 4px;
+/* Text glow */
+.text-glow {
+  text-shadow: 0 0 10px rgba(42, 157, 143, 0.5);
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--persian-green);
+/* Enhanced animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
 }
 
-/* Smooth transitions for all elements */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Dark theme focus states */
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-    outline: 2px solid var(--saffron);
-    outline-offset: 2px;
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
-/* Input styling for dark theme */
-input, select, textarea {
-    background: rgba(15, 28, 33, 0.6);
-    border: 1px solid rgba(42, 157, 143, 0.3);
-    color: #e2e8f0;
-    border-radius: 6px;
-    padding: 8px 12px;
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-input::placeholder, textarea::placeholder {
-    color: #64748b;
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* Card styling for POS system */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slow-spin {
+  animation: slow-spin 20s linear infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
