@@ -72,6 +72,9 @@ export default {
       backdropBlur: {
         xs: '2px',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       boxShadow: {
         glow: '0 0 30px rgba(42, 157, 143, 0.6)',
         'glow-lg': '0 0 40px rgba(42, 157, 143, 0.8)',

@@ -1,7 +1,7 @@
-@import 'tailwindcss';
-
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import 'tailwindcss';
 
 /* Base styles */
 :root {
@@ -27,4 +27,50 @@
   --steel-gray: #374151;
   --emerald-dark: #065f46;
   --amber-dark: #92400e;
+}
+
+/* Custom utilities */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(42, 157, 143, 0.6);
+}
+
+.shadow-glow-lg {
+  box-shadow: 0 0 40px rgba(42, 157, 143, 0.8);
+}
+
+/* Clerk component styling */
+.clerk-profile-container .cl-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.clerk-profile-container .cl-navbar {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+.clerk-profile-container .cl-navbarButton {
+  color: rgb(148, 163, 184) !important;
+}
+
+.clerk-profile-container .cl-navbarButton:hover {
+  color: rgb(248, 250, 252) !important;
+}
+
+.clerk-profile-container .cl-navbarButton[data-active] {
+  background: linear-gradient(to right, #2a9d8f, #e9c46a) !important;
+  color: white !important;
 }

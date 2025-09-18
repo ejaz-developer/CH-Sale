@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Demo files (not for production)
+src/AppDemo.jsx
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
