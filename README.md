@@ -406,6 +406,22 @@ npm run build:linux
 
 ## 🔐 Security
 
+**Enhanced Authentication System**: This POS application now features enterprise-grade security with backend-only authentication, encrypted local storage, and offline capabilities.
+
+### Security Features
+- **Backend Authentication**: Clerk credentials never exposed to frontend
+- **JWT Session Management**: Secure token-based authentication
+- **Encrypted Offline Storage**: Secure local data caching
+- **Automatic Token Refresh**: Seamless session management
+- **Secure IPC Communication**: Protected inter-process communication
+
+### Authentication Setup
+1. Configure Clerk credentials in backend environment
+2. Set JWT secret and encryption keys
+3. Backend handles all authentication securely
+
+For detailed security documentation, see [AUTHENTICATION.md](AUTHENTICATION.md).
+
 If you discover a security vulnerability, please send an email to [ejaz.developer@example.com](mailto:ejaz.developer@example.com) instead of opening a public issue.
 
 ## 📄 License
