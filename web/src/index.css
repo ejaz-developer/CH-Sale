@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Base styles */
+:root {
+  --charcoal: #264653ff;
+  --persian-green: #2a9d8fff;
+  --saffron: #e9c46aff;
+  --sandy-brown: #f4a261ff;
+  --burnt-sienna: #e76f51ff;
+
+  /* Dark theme variations */
+  --charcoal-darker: #1a2f36;
+  --charcoal-darkest: #0f1c21;
+  --charcoal-light: #3a5f6b;
+  --persian-green-dark: #1e6b5c;
+  --persian-green-darker: #134f44;
+  --saffron-dark: #b8984a;
+  --sandy-brown-dark: #c7824b;
+  --burnt-sienna-dark: #b85a42;
+
+  /* Additional gradient colors */
+  --dark-slate: #1e293b;
+  --midnight-blue: #0f172a;
+  --steel-gray: #374151;
+  --emerald-dark: #065f46;
+  --amber-dark: #92400e;
+}

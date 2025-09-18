@@ -9,18 +9,12 @@ import Inventory from './pages/Inventory.jsx';
 import Customers from './pages/Customers.jsx';
 import Reports from './pages/Reports.jsx';
 import Settings from './pages/Settings.jsx';
-import SignIn from './pages/SignIn.jsx';
-import SignUp from './pages/SignUp.jsx';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          {/* Auth Routes - Outside Layout */}
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-
           {/* Protected Routes - Inside Layout */}
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
