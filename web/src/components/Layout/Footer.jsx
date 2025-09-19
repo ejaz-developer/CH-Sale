@@ -6,49 +6,49 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800/50 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800/50 mt-12 sm:mt-16 lg:mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Company Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-white">
+              <span className="text-lg sm:text-xl font-bold text-white">
                 CH<span className="text-orange-400">POS</span>
               </span>
             </div>
-            <p className="text-gray-400 max-w-md leading-relaxed">
+            <p className="text-gray-400 max-w-md leading-relaxed text-sm sm:text-base">
               Revolutionizing point of sale systems for modern businesses. Streamline your
               operations with our comprehensive solution.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-2 sm:space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 p-3 hover:bg-gray-800/50 rounded-lg"
+                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 p-2 sm:p-3 hover:bg-gray-800/50 rounded-lg"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 p-3 hover:bg-gray-800/50 rounded-lg"
+                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 p-2 sm:p-3 hover:bg-gray-800/50 rounded-lg"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 p-3 hover:bg-gray-800/50 rounded-lg"
+                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 p-2 sm:p-3 hover:bg-gray-800/50 rounded-lg"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-white">Product</h4>
-            <ul className="space-y-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h4 className="text-base sm:text-lg font-semibold text-white">Product</h4>
+            <ul className="space-y-2 sm:space-y-4">
               {[
                 { name: 'Features', href: '/#features' },
                 { name: 'Pricing', href: '/#pricing' },
@@ -59,7 +59,7 @@ function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm block py-1"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm block py-1 hover:underline"
                   >
                     {link.name}
                   </Link>
@@ -69,9 +69,9 @@ function Footer() {
           </div>
 
           {/* Support */}
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-white">Support</h4>
-            <ul className="space-y-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h4 className="text-base sm:text-lg font-semibold text-white">Support</h4>
+            <ul className="space-y-2 sm:space-y-4">
               {[
                 { name: 'Help Center', href: '/help' },
                 { name: 'Contact Us', href: '/contact' },
@@ -82,7 +82,7 @@ function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm block py-1"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm block py-1 hover:underline"
                   >
                     {link.name}
                   </Link>
@@ -92,19 +92,19 @@ function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-white">Contact</h4>
-            <div className="space-y-4">
+          <div className="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1">
+            <h4 className="text-base sm:text-lg font-semibold text-white">Contact</h4>
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center space-x-3 text-gray-400">
-                <Mail className="w-4 h-4 text-orange-400" />
-                <span className="text-sm">support@pospro.com</span>
+                <Mail className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span className="text-sm break-all">support@pospro.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
-                <Phone className="w-4 h-4 text-orange-400" />
+                <Phone className="w-4 h-4 text-orange-400 flex-shrink-0" />
                 <span className="text-sm">+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center space-x-3 text-gray-400">
-                <MapPin className="w-4 h-4 text-orange-400" />
+              <div className="flex items-start space-x-3 text-gray-400">
+                <MapPin className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
                 <span className="text-sm">
                   123 Business Ave, Suite 100
                   <br />
@@ -114,15 +114,15 @@ function Footer() {
             </div>
 
             {/* Newsletter Signup */}
-            <div className="mt-8">
-              <h5 className="text-sm font-semibold text-white mb-4">Stay Updated</h5>
-              <div className="flex space-x-2">
+            <div className="mt-6 sm:mt-8">
+              <h5 className="text-sm font-semibold text-white mb-3 sm:mb-4">Stay Updated</h5>
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 />
-                <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25">
+                <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25 whitespace-nowrap">
                   Subscribe
                 </button>
               </div>
@@ -131,28 +131,28 @@ function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800/50 mt-16 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800/50 mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
               &copy; {currentYear} CHPOS. All rights reserved.
             </p>
 
-            <div className="flex items-center space-x-8 text-sm">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 lg:space-x-8 text-xs sm:text-sm">
               <Link
                 to="/privacy"
-                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1"
+                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1 hover:underline"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1"
+                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1 hover:underline"
               >
                 Terms of Service
               </Link>
               <Link
                 to="/cookies"
-                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1"
+                className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1 hover:underline"
               >
                 Cookie Policy
               </Link>
