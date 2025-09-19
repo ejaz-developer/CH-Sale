@@ -23,7 +23,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: ch-sale    # set this to your application's name
+  AZURE_WEBAPP_NAME: ChSale    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './backend'      # set this to the path to your web app project
   NODE_VERSION: '20.x'                # set this to the node version to use
 
@@ -54,7 +54,7 @@ jobs:
       with:
         name: node-app
         path: ./backend
-      
+
   deploy:
     permissions:
       contents: none

@@ -3,7 +3,7 @@ import Layout from './components/Layout/Layout';
 import LandingPage from './pages/LandingPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
-
+import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   return (
     <div className="min-h-screen">
@@ -18,17 +18,21 @@ function App() {
           <Route
             path="dashboard"
             element={
-              <div className="min-h-screen flex items-center justify-center">
-                <h1 className="text-white text-2xl">Dashboard - Coming Soon</h1>
-              </div>
+              <ProtectedRoute>
+                <div className="min-h-screen flex items-center justify-center">
+                  <h1 className="text-white text-2xl">Dashboard - Coming Soon</h1>
+                </div>
+              </ProtectedRoute>
             }
           />
           <Route
             path="demo"
             element={
-              <div className="min-h-screen flex items-center justify-center">
-                <h1 className="text-white text-2xl">Demo - Coming Soon</h1>
-              </div>
+              <ProtectedRoute>
+                <div className="min-h-screen flex items-center justify-center">
+                  <h1 className="text-white text-2xl">Demo - Coming Soon</h1>
+                </div>
+              </ProtectedRoute>
             }
           />
           <Route
