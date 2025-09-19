@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Twitter, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 function Footer() {
@@ -58,7 +57,7 @@ function Footer() {
               ].map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm block py-1 hover:underline"
                   >
                     {link.name}
@@ -81,7 +80,7 @@ function Footer() {
               ].map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm block py-1 hover:underline"
                   >
                     {link.name}
@@ -139,19 +138,19 @@ function Footer() {
 
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 lg:space-x-8 text-xs sm:text-sm">
               <Link
-                to="/privacy"
+                href="/privacy"
                 className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1 hover:underline"
               >
                 Privacy Policy
               </Link>
               <Link
-                to="/terms"
+                href="/terms"
                 className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1 hover:underline"
               >
                 Terms of Service
               </Link>
               <Link
-                to="/cookies"
+                href="/cookies"
                 className="text-gray-400 hover:text-orange-400 transition-colors duration-200 px-2 py-1 hover:underline"
               >
                 Cookie Policy

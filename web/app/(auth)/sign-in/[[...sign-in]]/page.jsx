@@ -1,9 +1,10 @@
-import React from 'react';
-import { SignIn } from '@clerk/clerk-react';
-import { Link } from 'react-router-dom';
+'use client';
+
+import { SignIn } from '@clerk/nextjs';
+import Link from 'next/link';
 import { Shield, Zap, BarChart3, Users, ArrowLeft, Check } from 'lucide-react';
 
-function SignInPage() {
+export default function SignInPage() {
   const features = [
     {
       icon: <Shield className="w-6 h-6" />,
@@ -41,13 +42,14 @@ function SignInPage() {
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900 flex">
       {/* Left Side - Feature Content */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5 relative overflow-hidden">
-        {/* Gradient Orbs - Responsive positioning */}
+        {/* Gradient Orbs - Enhanced for Left Side */}
         <div className="absolute top-10 left-10 lg:top-20 lg:left-20 w-48 h-48 lg:w-72 lg:h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 lg:bottom-20 lg:right-20 w-64 h-64 lg:w-96 lg:h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/3 w-40 h-40 lg:w-64 lg:h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
 
         <div className="relative z-10 flex flex-col justify-center px-8 lg:px-16 py-12 lg:py-20">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center text-gray-400 hover:text-orange-400 transition-colors duration-200 mb-8 lg:mb-12 group"
           >
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -59,7 +61,7 @@ function SignInPage() {
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 lg:mb-6 leading-tight">
                 Welcome back to{' '}
                 <span className="bg-gradient-to-r from-orange-400 to-blue-500 bg-clip-text text-transparent">
-                  POSPro
+                  CHPOS
                 </span>
               </h1>
               <p className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg">
@@ -90,7 +92,7 @@ function SignInPage() {
             {/* Benefits List */}
             <div className="space-y-3 lg:space-y-4 max-w-lg">
               <h3 className="text-white font-semibold text-base lg:text-lg">
-                What you get with POSPro:
+                What you get with CHPOS:
               </h3>
               <div className="grid grid-cols-1 gap-2">
                 {benefits.map((benefit, index) => (
@@ -110,7 +112,7 @@ function SignInPage() {
                 ))}
               </div>
               <p className="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4">
-                "POSPro transformed our business operations. The interface is intuitive, and the
+                "CHPOS transformed our business operations. The interface is intuitive, and the
                 analytics help us make better decisions every day."
               </p>
               <div className="flex items-center space-x-3">
@@ -126,20 +128,26 @@ function SignInPage() {
       </div>
 
       {/* Right Side - Sign In Form */}
-      <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="w-full max-w-md">
-          {/* Mobile Header */}
-          <div className="lg:hidden text-center mb-6 lg:mb-8">
-            <Link to="/" className="inline-flex items-center justify-center mb-4 lg:mb-6">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-blue-500 rounded-lg flex items-center justify-center mr-2">
-                <span className="text-white font-bold text-sm">P</span>
+      <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative">
+        {/* Gradient Orbs for Right Side */}
+        <div className="absolute top-20 left-10 w-32 h-32 lg:w-48 lg:h-48 bg-orange-500/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 lg:w-56 lg:h-56 bg-blue-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+
+        <div className="w-full max-w-md relative z-10">
+          {/* Header */}
+          <div className="text-center mb-6 lg:mb-8">
+            <Link href="/" className="inline-flex items-center justify-center mb-4 lg:mb-6">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-orange-500 to-blue-500 rounded-xl flex items-center justify-center mr-3 shadow-2xl">
+                <span className="text-white font-bold text-base lg:text-lg">CH</span>
               </div>
-              <span className="text-lg sm:text-xl font-bold text-white">
-                POS<span className="text-orange-400">Pro</span>
+              <span className="text-xl lg:text-2xl font-bold text-white">
+                CH<span className="text-orange-400">POS</span>
               </span>
             </Link>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Welcome Back</h2>
-            <p className="text-gray-400 text-sm sm:text-base">Sign in to your account</p>
+            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">Welcome Back</h2>
+            <p className="text-gray-400 text-sm lg:text-base">
+              Sign in to continue to your dashboard
+            </p>
           </div>
 
           {/* Clerk Sign In Component */}
@@ -176,7 +184,7 @@ function SignInPage() {
             <p className="text-gray-400 text-xs sm:text-sm">
               Don't have an account?{' '}
               <Link
-                to="/sign-up"
+                href="/sign-up"
                 className="text-orange-400 hover:text-orange-300 font-medium transition-colors duration-200"
               >
                 Sign up for free
@@ -185,14 +193,14 @@ function SignInPage() {
             <p className="text-gray-500 text-xs leading-relaxed">
               By signing in, you agree to our{' '}
               <Link
-                to="/terms"
+                href="/terms"
                 className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
               >
                 Terms of Service
               </Link>{' '}
               and{' '}
               <Link
-                to="/privacy"
+                href="/privacy"
                 className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
               >
                 Privacy Policy
@@ -204,5 +212,3 @@ function SignInPage() {
     </div>
   );
 }
-
-export default SignInPage;
