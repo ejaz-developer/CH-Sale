@@ -1,12 +1,13 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { useUser, SignInButton, UserButton } from '@clerk/clerk-react';
+import { useUser, UserButton, SignInButton } from '@clerk/nextjs';
 import { useState } from 'react';
 
 function Header() {
   const { isSignedIn } = useUser();
-  const location = useLocation();
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
@@ -22,7 +23,7 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 py-2">
+          <Link href="/" className="flex items-center space-x-2 py-2">
             <span className="text-lg sm:text-xl font-bold text-white">
               CH<span className="text-orange-400">POS</span>
             </span>
@@ -33,9 +34,9 @@ function Header() {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors duration-200 hover:text-orange-400 hover:bg-orange-500/10 ${
-                  location.pathname === item.href
+                  pathname === item.href
                     ? 'text-orange-400 bg-orange-500/10'
                     : 'text-gray-300'
                 }`}
@@ -50,13 +51,13 @@ function Header() {
             {isSignedIn ? (
               <div className="flex items-center space-x-3 lg:space-x-4">
                 <Link
-                  to="/download"
+                  href="/download"
                   className="bg-gray-700 hover:bg-gray-600 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:shadow-lg flex items-center gap-2"
                 >
                   Download App
                 </Link>
                 <Link
-                  to="/dashboard"
+                  href="/dashboard"
                   className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
                 >
                   Dashboard
@@ -73,7 +74,7 @@ function Header() {
             ) : (
               <div className="flex items-center space-x-3 lg:space-x-4">
                 <Link
-                  to="/download"
+                  href="/download"
                   className="bg-gray-700 hover:bg-gray-600 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:shadow-lg flex items-center gap-2"
                 >
                   Download App
@@ -84,7 +85,7 @@ function Header() {
                   </button>
                 </SignInButton>
                 <Link
-                  to="/sign-up"
+                  href="/sign-up"
                   className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
                 >
                   Get Started
@@ -116,9 +117,9 @@ function Header() {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className={`block px-4 py-3 text-base font-medium transition-colors duration-200 hover:text-orange-400 hover:bg-gray-800/50 rounded-md ${
-                    location.pathname === item.href
+                    pathname === item.href
                       ? 'text-orange-400 bg-gray-800/50'
                       : 'text-gray-300'
                   }`}
@@ -132,14 +133,14 @@ function Header() {
                 {isSignedIn ? (
                   <div className="space-y-3">
                     <Link
-                      to="/download"
+                      href="/download"
                       className="block w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-medium text-center text-sm transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Download App
                     </Link>
                     <Link
-                      to="/dashboard"
+                      href="/dashboard"
                       className="block w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-lg font-medium text-center text-sm transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -152,7 +153,7 @@ function Header() {
                 ) : (
                   <div className="space-y-3">
                     <Link
-                      to="/download"
+                      href="/download"
                       className="block w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-medium text-center text-sm transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -164,7 +165,7 @@ function Header() {
                       </button>
                     </SignInButton>
                     <Link
-                      to="/sign-up"
+                      href="/sign-up"
                       className="block w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-lg font-medium text-center text-sm transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >

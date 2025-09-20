@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   ArrowRight,
   Check,
@@ -8,16 +7,13 @@ import {
   Zap,
   BarChart3,
   Users,
-  TrendingUp,
   Globe,
-  Clock,
-  CreditCard,
   Smartphone,
 } from 'lucide-react';
 
-function LandingPage() {
+function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900 mt-12">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         {/* Gradient Orbs for Glow Effect - Responsive positioning */}
@@ -42,7 +38,7 @@ function LandingPage() {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-6 sm:pt-8 px-4 sm:px-0">
               <Link
-                to="/sign-up"
+                href="/sign-up"
                 className="group w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 flex items-center justify-center gap-2"
               >
                 Start Free Trial
@@ -50,7 +46,7 @@ function LandingPage() {
               </Link>
 
               <Link
-                to="/download"
+                href="/download"
                 className="group w-full sm:w-auto border-2 border-gray-600 hover:border-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:bg-orange-500/10 hover:shadow-xl hover:shadow-orange-500/10 text-center"
               >
                 Download Desktop App
@@ -236,7 +232,7 @@ function LandingPage() {
                 </ul>
 
                 <Link
-                  to="/sign-up"
+                  href="/sign-up"
                   className={`block w-full text-center py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ${
                     plan.isPopular
                       ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl'
@@ -268,7 +264,7 @@ function LandingPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
             <Link
-              to="/sign-up"
+              href="/sign-up"
               className="group w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25 flex items-center justify-center gap-2"
             >
               Start Free Trial
@@ -286,4 +282,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default Home;

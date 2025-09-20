@@ -1,9 +1,10 @@
-import React from 'react';
-import { SignUp } from '@clerk/clerk-react';
-import { Link } from 'react-router-dom';
+'use client';
+
+import { SignUp } from '@clerk/nextjs';
+import Link from 'next/link';
 import { Rocket, TrendingUp, Globe, Clock, ArrowLeft, Check, Star } from 'lucide-react';
 
-function SignUpPage() {
+export default function SignUpPage() {
   const features = [
     {
       icon: <Rocket className="w-6 h-6" />,
@@ -29,22 +30,16 @@ function SignUpPage() {
 
   const plans = [
     {
-      name: 'Starter',
-      price: '$29/month',
-      description: 'Perfect for small businesses',
+      name: 'Free',
+      price: '₨0/month',
+      description: 'Perfect to get started',
       popular: false,
     },
     {
-      name: 'Professional',
-      price: '$79/month',
-      description: 'Best for growing businesses',
+      name: 'Pro',
+      price: '₨1,500/month',
+      description: 'Everything you need to grow',
       popular: true,
-    },
-    {
-      name: 'Enterprise',
-      price: '$199/month',
-      description: 'For large-scale operations',
-      popular: false,
     },
   ];
 
@@ -61,13 +56,14 @@ function SignUpPage() {
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900 flex">
       {/* Left Side - Feature Content */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5 relative overflow-hidden">
-        {/* Gradient Orbs - Responsive positioning */}
+        {/* Gradient Orbs - Enhanced for Left Side */}
         <div className="absolute top-10 left-10 lg:top-20 lg:left-20 w-48 h-48 lg:w-72 lg:h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 lg:bottom-20 lg:right-20 w-64 h-64 lg:w-96 lg:h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/3 w-40 h-40 lg:w-64 lg:h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
 
         <div className="relative z-10 flex flex-col justify-center px-8 lg:px-16 py-12 lg:py-20">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center text-gray-400 hover:text-orange-400 transition-colors duration-200 mb-8 lg:mb-12 group"
           >
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -84,7 +80,7 @@ function SignUpPage() {
                 today
               </h1>
               <p className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg">
-                Join thousands of businesses already using POSPro to streamline their operations and
+                Join thousands of businesses already using CHPOS to streamline their operations and
                 boost their revenue.
               </p>
             </div>
@@ -118,7 +114,7 @@ function SignUpPage() {
 
             {/* Features Grid */}
             <div className="space-y-4 lg:space-y-6 max-w-lg">
-              <h3 className="text-white font-semibold text-base lg:text-lg">Why choose POSPro?</h3>
+              <h3 className="text-white font-semibold text-base lg:text-lg">Why choose CHPOS?</h3>
               <div className="grid grid-cols-1 gap-3 lg:gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-3 lg:space-x-4 group">
@@ -183,20 +179,24 @@ function SignUpPage() {
       </div>
 
       {/* Right Side - Sign Up Form */}
-      <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="w-full max-w-md">
-          {/* Mobile Header */}
-          <div className="lg:hidden text-center mb-6 lg:mb-8">
-            <Link to="/" className="inline-flex items-center justify-center mb-4 lg:mb-6">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-blue-500 rounded-lg flex items-center justify-center mr-2">
-                <span className="text-white font-bold text-sm">P</span>
+      <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative">
+        {/* Gradient Orbs for Right Side */}
+        <div className="absolute top-20 left-10 w-32 h-32 lg:w-48 lg:h-48 bg-orange-500/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 lg:w-56 lg:h-56 bg-blue-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+
+        <div className="w-full max-w-md relative z-10">
+          {/* Header */}
+          <div className="text-center mb-6 lg:mb-8">
+            <Link href="/" className="inline-flex items-center justify-center mb-4 lg:mb-6">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-orange-500 to-blue-500 rounded-xl flex items-center justify-center mr-3 shadow-2xl">
+                <span className="text-white font-bold text-base lg:text-lg">CH</span>
               </div>
-              <span className="text-lg sm:text-xl font-bold text-white">
-                POS<span className="text-orange-400">Pro</span>
+              <span className="text-xl lg:text-2xl font-bold text-white">
+                CH<span className="text-orange-400">POS</span>
               </span>
             </Link>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Get Started Free</h2>
-            <p className="text-gray-400 text-sm sm:text-base">Create your account in minutes</p>
+            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">Get Started Free</h2>
+            <p className="text-gray-400 text-sm lg:text-base">Create your account in minutes</p>
           </div>
 
           {/* Clerk Sign Up Component */}
@@ -235,7 +235,7 @@ function SignUpPage() {
             <p className="text-gray-400 text-xs sm:text-sm">
               Already have an account?{' '}
               <Link
-                to="/sign-in"
+                href="/sign-in"
                 className="text-orange-400 hover:text-orange-300 font-medium transition-colors duration-200"
               >
                 Sign in here
@@ -244,14 +244,14 @@ function SignUpPage() {
             <p className="text-gray-500 text-xs leading-relaxed">
               By signing up, you agree to our{' '}
               <Link
-                to="/terms"
+                href="/terms"
                 className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
               >
                 Terms of Service
               </Link>{' '}
               and{' '}
               <Link
-                to="/privacy"
+                href="/privacy"
                 className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
               >
                 Privacy Policy
@@ -263,5 +263,3 @@ function SignUpPage() {
     </div>
   );
 }
-
-export default SignUpPage;
