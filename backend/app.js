@@ -1,15 +1,20 @@
 import express from 'express';
 import cors from 'cors';
+import userRoute from './route/user.route.js';
+import { clerkMiddleware } from '@clerk/express';
+import dotenv from 'dotenv';
+dotenv.config({
+  path: './.env',
+});
 const app = express();
-import userRoute from "./route/user.route.js";
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(clerkMiddleware());
 app.use(
   cors({
-    origin: process.env.NODE_ENV == 'development' ? '*' : process.env.ALLOWED_ORIGIN,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: process.env.ALLOWED_ORIGIN,
+    credentials: true,
   }),
 );
 
@@ -18,11 +23,11 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'API is running' });
 });
 
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
-});
 app.use('/api/v1/users', userRoute);
 // 404 handler
+app.get('/api/v1/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 app.use((req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });
