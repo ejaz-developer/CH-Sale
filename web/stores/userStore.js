@@ -5,28 +5,21 @@ const useUserStore = create((set, get) => ({
   userData: null,
   loading: false,
   error: null,
-  setUser: (data) => set({ userData: data }),
-
-  fetchUser: async () => {
+  setLoading: (loading) => set({ loading }),
+  setUserData: (data) => set({ userData: data }),
+  fetchUserData: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await axiosInstance.get(`/api/v1/users/profile`);
-      if (response.status === 200) {
-        set({ userData: response.data, loading: false });
-        return response.data;
-      }
-      console.log(response);
+      const response = await axiosInstance.get('/api/v1/users/profile');
+      // Extract the actual user data from response.data.data
+      const userData = response.data?.data || response.data;
+      set({ userData: userData });
     } catch (error) {
-      console.error('Error fetching user:', error);
+      set({ error: error.message });
     } finally {
-      set({ error: error.message, loading: false });
+      set({ loading: false });
     }
   },
-
- 
-
-  clearError: () => set({ error: null }),
-  setLoading: (status) => set({ loading: status }),
 }));
 
 export default useUserStore;
