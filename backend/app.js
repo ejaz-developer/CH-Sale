@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import userRoute from './route/user.route.js';
 import { clerkMiddleware } from '@clerk/express';
 import dotenv from 'dotenv';
+// routes import
+import userRoute from './route/user.route.js';
+import productRoute from './route/product.route.js';
 dotenv.config({
   path: './.env',
 });
@@ -24,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/users', userRoute);
+app.use('/api/v1/products', productRoute);
 // 404 handler
 app.get('/api/v1/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
