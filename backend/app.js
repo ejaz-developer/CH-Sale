@@ -32,7 +32,7 @@ app.use('/api/v1/users', userRoute);
 app.use('/api/v1/products', productRoute);
 app.use('/api/v1/customers', customerRoute);
 app.use('/api/v1/sales', saleRoute);
-app.use('/api/v1/categories', cateogiesRoute())
+app.use('/api/v1/categories', cateogiesRoute)
 // 404 handler
 app.get('/api/v1/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
