@@ -66,6 +66,7 @@ export const createSale = async (req, res) => {
 };
 
 export const getSales = async (_req, res) => {
+    const {userId} = getAuth
   try {
     const sales = await Sale.find().sort({ createdAt: -1 });
     return res.status(200).json({ message: 'Sales fetched successfully', data: sales });

@@ -43,54 +43,6 @@
 2.
 3.
 
-## 📱 POS System Impact
-<!-- How does this change affect the POS system? -->
-
-### Affected Components
-- [ ] Dashboard
-- [ ] Sales module
-- [ ] Inventory management
-- [ ] Customer management
-- [ ] Reports
-- [ ] Settings
-- [ ] Database schema
-- [ ] API endpoints
-
-### Business Logic Changes
-- [ ] No business logic changes
-- [ ] Minor business logic updates
-- [ ] Major business logic changes (please explain below)
-
-**Business Impact Description:**
-
-
-## 🎯 Related Issues
-<!-- Link to related issues using GitHub keywords -->
-
-Closes #<!-- issue number -->
-Fixes #<!-- issue number -->
-Related to #<!-- issue number -->
-
-## 📸 Screenshots/Videos
-<!-- Add screenshots for UI changes or videos for complex features -->
-
-### Before
-<!-- Screenshot/description of current state -->
-
-### After
-<!-- Screenshot/description after changes -->
-
-## 🚀 Deployment Notes
-<!-- Any special deployment considerations -->
-
-- [ ] No deployment changes needed
-- [ ] Database migration required
-- [ ] Environment variables need updating
-- [ ] Third-party service configuration needed
-- [ ] Documentation needs updating
-
-**Deployment Instructions:**
-
 
 ## ✅ Checklist
 <!-- Ensure all items are completed before requesting review -->
@@ -129,25 +81,3 @@ Related to #<!-- issue number -->
 - [ ] Security review (for sensitive changes)
 - [ ] Performance review (for optimization changes)
 
-**Specific areas to focus review on:**
-
-
-## 📋 Additional Notes
-<!-- Any additional information for reviewers -->
-
-**Breaking Changes:**
-<!-- List any breaking changes and migration steps -->
-
-**Dependencies:**
-<!-- List any new dependencies or version updates -->
-
-**Future Considerations:**
-<!-- Any follow-up work or considerations for future PRs -->
-
----
-**Reviewer Guidelines:**
-- Check that all tests pass
-- Verify the change works as described
-- Look for potential security issues
-- Consider performance implications
-- Ensure documentation is adequate
