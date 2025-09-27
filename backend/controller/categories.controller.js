@@ -76,6 +76,7 @@ export const deleteCategory = async (req, res) => {
     const { categoryId } = req.params
     if(!categoryId) {
         res.status(400).json({message: 'category ID not found',})
+        return;
     }
     try {
         const deletedCategory = await Category.deleteOne({ _id: categoryId })
