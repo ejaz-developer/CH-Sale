@@ -5,7 +5,7 @@ import {
   getCustomerById,
   getCustomers,
   updateCustomer,
-} from '../controller/customer.controller';
+} from '../controller/customer.controller.js';
 
 const router = Router();
 

@@ -1,6 +1,5 @@
 import { getAuth } from '@clerk/express';
-import User from '../models/user.models';
-import Customer from '../models/customer.models';
+import Customer from "../models/customer.models.js";
 
 export const createCustomer = async (req, res) => {
   const { name, email, phone, storeId, address } = req.body;
